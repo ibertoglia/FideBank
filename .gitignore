@@ -1,129 +1,68 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+print("Welcome to the Fidelitas Bank")
+print()
+usuario = "estudiante123"
+contrasena = "fide123"
+for i in range ( 3 ):
+    user = input ( "Please enter the User to access: " )
+    entrada = input ( "Please enter the password to access: " )
+    if entrada != contrasena or user != usuario:
+        print()
+        print("Incorrect access information, Try again")
+    if entrada == contrasena and user == usuario:
+        break
 
-# C extensions
-*.so
+if entrada == contrasena:
+    print()
+    print ( "Welcome to Fidelitas Bank" )
+    with open ( "Data FideBank .txt" ) as data123:
+        lectura = data123.read()
+        print(lectura)
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+    choice = ""
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+    while True:
+        print ( "1) SINPE Transfer" )
+        print ( "2) Phone Top-Up" )
+        print ( "3) Deposit" )
+        print ( "4) Balance" )
+        print ( "5) Quit" )
+        print ()
+        choice = input ( "Enter your Choice: " )
+        balance = 17800.42
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
-
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-target/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# IPython
-profile_default/
-ipython_config.py
-
-# pyenv
-.python-version
-
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
-
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
-__pypackages__/
-
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre type checker
-.pyre/
+        if choice == "1":
+            print ()
+            phone = input ( "Enter The Cell Phone Number: " )
+            phoneamount = float ( input ( "Select the amount you want to transfer: $" ) )
+            print()
+            print("-------Successful SINPE Transaction-------")
+            print()
+            break
+        elif choice== "2":
+            print ()
+            cellphone = input ( "Enter The Cell Phone Number: " )
+            phoneamount = float ( input ( "Select the amount you want to recharge: $" ) )
+            print ()
+            print ( "-------Successful Top-Up to the phone number",cellphone,"-------")
+            print ()
+            break
+        elif choice== "3":
+            print ()
+            newbalance= float ( input ( "Select the amount you want to Deposit: $" ) )
+            print ()
+            print ( "-------Successful Deposit, The new balance is $",newbalance + balance,"-------")
+            print ()
+            break
+        elif choice== "4":
+            print ()
+            print ( "-------Your balance is $",balance,"-------")
+            print ()
+            break
+        elif choice== "5":
+            print ()
+            print ( "-------Thank you for being part of FideBank, have a good day-------")
+            print ()
+            break
+else:
+    print()
+    print ( "Incorrect access information, Maximum attempts reached, Blocked account" )
