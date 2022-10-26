@@ -1,5 +1,9 @@
+import os.path
+import time
+
 print("Welcome to the Fidelitas Bank")
 print()
+archivo= open("FidebankLogbook.txt","w")
 usuario = "estudiante123"
 contrasena = "fide123"
 for i in range ( 3 ):
@@ -8,6 +12,9 @@ for i in range ( 3 ):
     if entrada != contrasena or user != usuario:
         print()
         print("Incorrect access information, Try again")
+        archivo.write ( usuario + "\n" )
+        archivo.write ( contrasena + "\n" )
+        archivo.write("Modification date: ",{}.format(time.ctime(os.path.getmtime("FidebankLogbook.txt"))))
     if entrada == contrasena and user == usuario:
         break
 
@@ -19,6 +26,8 @@ if entrada == contrasena:
         print(lectura)
 
     choice = ""
+    import rand as rand
+    import numpy as np
 
     while True:
         print ( "1) SINPE Transfer" )
@@ -36,6 +45,8 @@ if entrada == contrasena:
             phoneamount = float ( input ( "Select the amount you want to transfer: $" ) )
             print()
             print("-------Successful SINPE Transaction-------")
+            print("Your confirmation code is:")
+            print ( np.random.randint ( 50, 90, 5 ) )
             print()
             break
         elif choice== "2":
@@ -44,6 +55,8 @@ if entrada == contrasena:
             phoneamount = float ( input ( "Select the amount you want to recharge: $" ) )
             print ()
             print ( "-------Successful Top-Up to the phone number",cellphone,"-------")
+            print ( "Your confirmation code is:" )
+            print ( np.random.randint ( 50, 90, 5 ) )
             print ()
             break
         elif choice== "3":
@@ -51,11 +64,15 @@ if entrada == contrasena:
             newbalance= float ( input ( "Select the amount you want to Deposit: $" ) )
             print ()
             print ( "-------Successful Deposit, The new balance is $",newbalance + balance,"-------")
+            print ( "Your confirmation code is:" )
+            print ( np.random.randint ( 50, 90, 5 ) )
             print ()
             break
         elif choice== "4":
             print ()
             print ( "-------Your balance is $",balance,"-------")
+            print ( "Your confirmation code is:" )
+            print ( np.random.randint ( 50, 90, 5 ) )
             print ()
             break
         elif choice== "5":
@@ -66,3 +83,5 @@ if entrada == contrasena:
 else:
     print()
     print ( "Incorrect access information, Maximum attempts reached, Blocked account" )
+
+archivo.close()
