@@ -73,7 +73,39 @@ if entrada == contrasena:
             print ()
             break
         elif choice== "5":
+            print ( "Bienvenido al Juego Del Ahorcado " )
+            import time
+            nombre = input ( "Cual es su nombre?  " )
+            print ( "Hola" + "", nombre, "" "Juguemos" )
+            print ( "" )
+            time.sleep ( 1 )
+            print ( "Adivina que palabra es " )
+            time.sleep ( 1.5 )
+            palabra = "colones"
+            tupalabra = ""
+            vidas = 4
+            while vidas > 0:
+                fallas = 0
+                for letra in palabra:
+                    if letra in tupalabra:
+                        print ( letra, end="" )
+                    else:
+                        print ( "_", end="" )
+                        fallas += 1
+                if fallas == 0:
+                    print ( "Felicidades Gano el Juego" )
+                    break
+                tuletra = input ( "Introduce una letra: " )
+                tupalabra += tuletra
 
+                if tuletra not in palabra:
+                    vidas -= 1
+                    print ( "Letra erronea" )
+                    print ( "Le Quedan", +vidas, "Vidas" )
+                if vidas == 0:
+                    print ( "Perdiste" )
+            else:
+                print ( "Gracias por participar " )
             break
         elif choice== "6":
             print ()
