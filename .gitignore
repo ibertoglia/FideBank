@@ -1,6 +1,7 @@
 import os.path
-import time
-
+import rand as rand
+import numpy as np
+import Login
 print("Welcome to the Fidelitas Bank")
 print()
 archivo= open("FidebankLogbook.txt","w")
@@ -14,7 +15,6 @@ for i in range ( 3 ):
         print("Incorrect access information, Try again")
         archivo.write ( usuario + "\n" )
         archivo.write ( contrasena + "\n" )
-        archivo.write("Modification date: ",{}.format(time.ctime(os.path.getmtime("FidebankLogbook.txt"))))
     if entrada == contrasena and user == usuario:
         break
 
@@ -25,16 +25,13 @@ if entrada == contrasena:
         lectura = data123.read()
         print(lectura)
 
-    choice = ""
-    import rand as rand
-    import numpy as np
-
     while True:
         print ( "1) SINPE Transfer" )
         print ( "2) Phone Top-Up" )
         print ( "3) Deposit" )
         print ( "4) Balance" )
-        print ( "5) Quit" )
+        print ( "5) Ahorcado")
+        print ( "6) Quit" )
         print ()
         choice = input ( "Enter your Choice: " )
         balance = 17800.42
@@ -76,6 +73,9 @@ if entrada == contrasena:
             print ()
             break
         elif choice== "5":
+
+            break
+        elif choice== "6":
             print ()
             print ( "-------Thank you for being part of FideBank, have a good day-------")
             print ()
