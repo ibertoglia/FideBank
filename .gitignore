@@ -1,80 +1,122 @@
+############################# CODIGO FRONTEND ################################
 import os.path
 import rand as rand
 import numpy as np
 import Login
+import Menu
 print("Welcome to the Fidelitas Bank")
 print()
 archivo= open("FidebankLogbook.txt","w")
 usuario = "estudiante123"
 contrasena = "fide123"
-for i in range ( 3 ):
+bandera =0
+while (bandera<3):
+      if(Login.log()==False):
+        bandera=bandera+1
+      else:
+          print ()
+          print ( "Welcome to Fidelitas Bank" )
+          with open ( "Data FideBank .txt" ) as data123:
+              lectura = data123.read ()
+              print ( lectura )
+              Menu.Menu()
+              archivo.close ()
+          break
+   #####################################################################
+   ############################# CODIGO LOGIN ################################
+   from datetime import datetime
+curDT = datetime.now()
+day = curDT.strftime("%d")
+month = curDT.strftime("%m")
+year = curDT.strftime("%Y")
+time = curDT.strftime("%H:%M:%S")
+date_time = curDT.strftime("%m/%d/%Y, %H:%M:%S")
+def log():
+    archivo = open ( "FidebankLogbook.txt", "w" )
+    usuario = "estudiante123"
+    contrasena = "fide123"
     user = input ( "Please enter the User to access: " )
     entrada = input ( "Please enter the password to access: " )
+    archivo.write ( user +"\n" )
+    archivo.write ( entrada +"\n" )
+    archivo.write (date_time)
     if entrada != contrasena or user != usuario:
         print()
         print("Incorrect access information, Try again")
-        archivo.write ( usuario + "\n" )
-        archivo.write ( contrasena + "\n" )
-    if entrada == contrasena and user == usuario:
-        break
-
-if entrada == contrasena:
-    print()
-    print ( "Welcome to Fidelitas Bank" )
-    with open ( "Data FideBank .txt" ) as data123:
-        lectura = data123.read()
-        print(lectura)
-
-    while True:
+        return False
+    else:
+        return True
+       ##########################################################################################################################################
+     ############################# CODIGO MENU ################################  
+     import numpy as np
+import Login
+from datetime import datetime
+curDT = datetime.now()
+day = curDT.strftime("%d")
+month = curDT.strftime("%m")
+year = curDT.strftime("%Y")
+time = curDT.strftime("%H:%M:%S")
+date_time = curDT.strftime("%m/%d/%Y, %H:%M:%S")
+archivo = open ( "FidebankLogbook.txt", "w" )
+def Menu():
+    global choice
+    choice = ""
+    while choice != "6":
         print ( "1) SINPE Transfer" )
         print ( "2) Phone Top-Up" )
         print ( "3) Deposit" )
         print ( "4) Balance" )
-        print ( "5) Ahorcado")
+        print ( "5) Ahorcado" )
         print ( "6) Quit" )
         print ()
         choice = input ( "Enter your Choice: " )
         balance = 17800.42
-
         if choice == "1":
             print ()
             phone = input ( "Enter The Cell Phone Number: " )
             phoneamount = float ( input ( "Select the amount you want to transfer: $" ) )
-            print()
-            print("-------Successful SINPE Transaction-------")
-            print("Your confirmation code is:")
+            print ()
+            print ( "-------Successful SINPE Transaction-------" )
+            print ( "Your confirmation code is:" )
             print ( np.random.randint ( 50, 90, 5 ) )
-            print()
-            break
-        elif choice== "2":
+            print ()
+            print ( "Type 6 for exit" )
+
+        elif choice == "2":
             print ()
             cellphone = input ( "Enter The Cell Phone Number: " )
             phoneamount = float ( input ( "Select the amount you want to recharge: $" ) )
             print ()
-            print ( "-------Successful Top-Up to the phone number",cellphone,"-------")
+            print ( "-------Successful Top-Up to the phone number", cellphone, "-------" )
             print ( "Your confirmation code is:" )
             print ( np.random.randint ( 50, 90, 5 ) )
             print ()
-            break
-        elif choice== "3":
+            print ( "Type 6 for exit" )
+
+        elif choice == "3":
             print ()
-            newbalance= float ( input ( "Select the amount you want to Deposit: $" ) )
+            newbalance = float ( input ( "Select the amount you want to Deposit: $" ) )
             print ()
-            print ( "-------Successful Deposit, The new balance is $",newbalance + balance,"-------")
+            print ( "-------Successful Deposit, The new balance is $", newbalance + balance, "-------" )
             print ( "Your confirmation code is:" )
             print ( np.random.randint ( 50, 90, 5 ) )
             print ()
-            break
-        elif choice== "4":
+            print ( "Type 6 for exit" )
+
+        elif choice == "4":
             print ()
-            print ( "-------Your balance is $",balance,"-------")
+            print ( "-------Your balance is $", balance, "-------" )
             print ( "Your confirmation code is:" )
             print ( np.random.randint ( 50, 90, 5 ) )
             print ()
-            break
-        elif choice== "5":
+            print ( "Type 6 for exit" )
+
+
+
+        elif choice == "5":
             print ( "Bienvenido al Juego Del Ahorcado " )
             import time
+
             nombre = input ( "Cual es su nombre?  " )
             print ( "Hola" + "", nombre, "" "Juguemos" )
             print ( "" )
@@ -106,14 +148,10 @@ if entrada == contrasena:
                     print ( "Perdiste" )
             else:
                 print ( "Gracias por participar " )
-            break
-        elif choice== "6":
-            print ()
-            print ( "-------Thank you for being part of FideBank, have a good day-------")
-            print ()
-            break
-else:
-    print()
-    print ( "Incorrect access information, Maximum attempts reached, Blocked account" )
 
-archivo.close()
+            print ( "Type 6 for exit" )
+
+        elif choice == "6":
+            print ()
+            print ( "-------Thank you for being part of FideBank, have a good day-------" )
+##########################################################################################################################################
