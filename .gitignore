@@ -4,27 +4,24 @@ import rand as rand
 import numpy as np
 import Login
 import Menu
-print("Welcome to the Fidelitas Bank")
-print()
 archivo= open("FidebankLogbook.txt","w")
-usuario = "estudiante123"
-contrasena = "fide123"
-bandera =0
-while (bandera<3):
-      if(Login.log()==False):
-        bandera=bandera+1
-      else:
-          print ()
-          print ( "Welcome to Fidelitas Bank" )
-          with open ( "Data FideBank .txt" ) as data123:
-              lectura = data123.read ()
-              print ( lectura )
-              Menu.Menu()
-              archivo.close ()
-          break
+def ATTEMPTS():
+    bandera = 0
+    while (bandera < 3):
+        if (Login.log () == False):
+            bandera = bandera + 1
+        else:
+            print ()
+            print ( "Welcome to Fidelitas Bank" )
+            with open ( "Data FideBank .txt" ) as data123:
+                lectura = data123.read ()
+                print ( lectura )
+                Menu.Menu ()
+                archivo.close ()
+            break
    #####################################################################
    ############################# CODIGO LOGIN ################################
-   from datetime import datetime
+from datetime import datetime
 curDT = datetime.now()
 day = curDT.strftime("%d")
 month = curDT.strftime("%m")
@@ -46,9 +43,9 @@ def log():
         return False
     else:
         return True
-       ##########################################################################################################################################
-     ############################# CODIGO MENU ################################  
-     import numpy as np
+##########################################################################################################################################
+############################# CODIGO MENU ################################  
+import numpy as np
 import Login
 from datetime import datetime
 curDT = datetime.now()
@@ -155,3 +152,24 @@ def Menu():
             print ()
             print ( "-------Thank you for being part of FideBank, have a good day-------" )
 ##########################################################################################################################################
+############################# CODIGO INTENTOS ################################  
+import os.path
+import rand as rand
+import numpy as np
+import Login
+import Menu
+archivo= open("FidebankLogbook.txt","w")
+def ATTEMPTS():
+    bandera = 0
+    while (bandera < 3):
+        if (Login.log () == False):
+            bandera = bandera + 1
+        else:
+            print ()
+            print ( "Welcome to Fidelitas Bank" )
+            with open ( "Data FideBank .txt" ) as data123:
+                lectura = data123.read ()
+                print ( lectura )
+                Menu.Menu ()
+                archivo.close ()
+            break
