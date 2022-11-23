@@ -4,21 +4,14 @@ import rand as rand
 import numpy as np
 import Login
 import Menu
+import Intentos
+print("Welcome to the Fidelitas Bank")
+print()
 archivo= open("FidebankLogbook.txt","w")
-def ATTEMPTS():
-    bandera = 0
-    while (bandera < 3):
-        if (Login.log () == False):
-            bandera = bandera + 1
-        else:
-            print ()
-            print ( "Welcome to Fidelitas Bank" )
-            with open ( "Data FideBank .txt" ) as data123:
-                lectura = data123.read ()
-                print ( lectura )
-                Menu.Menu ()
-                archivo.close ()
-            break
+usuario = "estudiante123"
+contrasena = "fide123"
+bandera =0
+Intentos.ATTEMPTS()
    #####################################################################
    ############################# CODIGO LOGIN ################################
 from datetime import datetime
