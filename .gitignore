@@ -48,6 +48,7 @@ year = curDT.strftime("%Y")
 time = curDT.strftime("%H:%M:%S")
 date_time = curDT.strftime("%m/%d/%Y, %H:%M:%S")
 archivo = open ( "FidebankLogbook.txt", "w" )
+array = np.random.randint ( 10, size=(2, 3) )
 def Menu():
     global choice
     choice = ""
@@ -68,7 +69,7 @@ def Menu():
             print ()
             print ( "-------Successful SINPE Transaction-------" )
             print ( "Your confirmation code is:" )
-            print ( np.random.randint ( 50, 90, 5 ) )
+            print ( array )
             print ()
             print ( "Type 6 for exit" )
 
@@ -79,7 +80,7 @@ def Menu():
             print ()
             print ( "-------Successful Top-Up to the phone number", cellphone, "-------" )
             print ( "Your confirmation code is:" )
-            print ( np.random.randint ( 50, 90, 5 ) )
+            print ( array )
             print ()
             print ( "Type 6 for exit" )
 
@@ -89,7 +90,7 @@ def Menu():
             print ()
             print ( "-------Successful Deposit, The new balance is $", newbalance + balance, "-------" )
             print ( "Your confirmation code is:" )
-            print ( np.random.randint ( 50, 90, 5 ) )
+            print ( array )
             print ()
             print ( "Type 6 for exit" )
 
@@ -97,10 +98,9 @@ def Menu():
             print ()
             print ( "-------Your balance is $", balance, "-------" )
             print ( "Your confirmation code is:" )
-            print ( np.random.randint ( 50, 90, 5 ) )
+            print ( array )
             print ()
             print ( "Type 6 for exit" )
-
 
 
         elif choice == "5":
